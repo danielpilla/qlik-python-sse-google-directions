@@ -165,6 +165,4 @@ I have created an application that demonstrates three different methods of imple
 3. Example application:
 	- The example I’ve provided allows up to 10 waypoints (Google supports up to 23, you could easily adjust the app to allow more). You enter a location into the input box on the top left, and that location is used as your start and end. You then select a transportation mode (driving is the default) followed by up to 10 waypoints. If you have a location entered and waypoints>=2 and waypoints<=10, the map will render the route as well as the ordered points in the order in which to most optimally traverse. 
 
-![Waypoint Optimization](https://imgur.com/a/x4tFt)
-
-<img style="-webkit-user-select: none" src="https://imgur.com/a/x4tFt">
+![Waypoint Optimization](https://i.imgur.com/OkEqbeU.png)
