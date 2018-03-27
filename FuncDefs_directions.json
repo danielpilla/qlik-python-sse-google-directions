@@ -1,0 +1,30 @@
+{
+    "Functions" : [
+        {
+            "Id" : 0,
+            "Name" : "GoogleDirections",
+            "Type" : 0,
+            "ReturnType": 0,
+            "Params" : {
+                    "start" : 0,
+                    "end" : 0,
+                    "mode" : 0,
+                    "response" : 0,
+                    "alternative" : 0
+                }
+        },
+        {
+            "Id" : 1,
+            "Name" : "WaypointOptimization",
+            "Type" : 0,
+            "ReturnType": 0,
+            "Params" : {
+                    "start" : 0,
+                    "end" : 0,
+                    "mode" : 0,
+                    "response" : 0,
+                    "waypoints" : 0
+                }
+        }
+    ]
+}
