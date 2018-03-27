@@ -132,15 +132,15 @@ First and foremost, you will need to link a Google account to receive a [Google 
 I have created an application that demonstrates three different methods of implementation, but there are certainly many other scenarios and use cases.
 - Sheet 1: Routing from input box to input box locations
 
-![alt tag](https://www.dropbox.com/s/1n3aan2ke2ufdjx/directions-sheet-1.png?dl=1)
+<img style="-webkit-user-select: none" src="https://www.dropbox.com/s/1n3aan2ke2ufdjx/directions-sheet-1.png">
 
 - Sheet 2: Routing from selecting two address values within a filter pane or on the map
 
-![alt tag](https://www.dropbox.com/s/1l4cdc9i1rrspq1/directions-sheet-2.png?dl=1)
+<img style="-webkit-user-select: none" src="https://www.dropbox.com/s/1l4cdc9i1rrspq1/directions-sheet-2.png">
 
 - Sheet 3: Routing from an input box location to a selection in a field or on the map
 
-![alt tag](https://www.dropbox.com/s/wb7ic7vcs5r6zu7/directions-sheet-3.png?dl=1)
+<img style="-webkit-user-select: none" src="https://www.dropbox.com/s/wb7ic7vcs5r6zu7/directions-sheet-3.png">
        
 ### Waypoint Optimization (Traveling Salesman)
 
@@ -165,5 +165,4 @@ I have created an application that demonstrates three different methods of imple
 3. Example application:
 	- The example I’ve provided allows up to 10 waypoints (Google supports up to 23, you could easily adjust the app to allow more). You enter a location into the input box on the top left, and that location is used as your start and end. You then select a transportation mode (driving is the default) followed by up to 10 waypoints. If you have a location entered and waypoints>=2 and waypoints<=10, the map will render the route as well as the ordered points in the order in which to most optimally traverse. 
 
-
-![alt tag](https://www.dropbox.com/s/2ygzs0gbu3amv4t/wayptoint-optimization-sheet-1.png?dl=1)
+<img style="-webkit-user-select: none" src="https://www.dropbox.com/s/2ygzs0gbu3amv4t/wayptoint-optimization-sheet-1.png">
