@@ -49,7 +49,7 @@ $ cd Directions
 ```shell
 $ setprojectdir .
 ```
-6. We have now set the stage for our Sentiment environment. To navigate back into this project in the future, simply execute:
+6. We have now set the stage for our environment. To navigate back into this project in the future, simply execute:
 ```shell
 $ workon QlikSenseAAI
 ```
