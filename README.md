@@ -1,10 +1,14 @@
-# Python Google Directions & Waypoint Optimization SSE for Qlik Sense
+# Python Google Directions & Waypoint Optimization SSE for Qlik
+
+![Waypoint Optimization](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/wayptoint-optimization-sheet-1.png)
 
 ## REQUIREMENTS
 
 - **Assuming prerequisite: [Python with Qlik Sense AAI – Environment Setup](https://www.dropbox.com/s/dhmd3vm7oqurn2m/DPI%20-%20Qlik%20Sense%20AAI%20and%20Python%20Environment%20Setup.pdf?dl=0)**
 	- This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
 - Qlik Sense June 2017+
+- QlikView November 2017+
+    - *This guide is designed for Qlik Sense but may be used with QlikView. See how to setup Analytic Connections within QlikView [here](https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Analytic_connections.htm)*
 - Python 3.5.3 64 bit *(3.4+ but tested on 3.5.3)*
 - Python Libraries: grpcio, googlemaps, polyline
 
