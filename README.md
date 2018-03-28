@@ -6,11 +6,13 @@
 
 - **Assuming prerequisite: [Python with Qlik Sense AAI – Environment Setup](https://www.dropbox.com/s/dhmd3vm7oqurn2m/DPI%20-%20Qlik%20Sense%20AAI%20and%20Python%20Environment%20Setup.pdf?dl=0)**
 	- This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
+- **Waypoint Optimization example demo app also leverages the [Geocoding SSE](https://github.com/danielpilla/qlik-python-sse-geocoding) to first place a pin on a map as the starting point. To have app work properly, this SSE needs to be configured as well.**
 - Qlik Sense June 2017+
 - QlikView November 2017+
     - *This guide is designed for Qlik Sense but may be used with QlikView. See how to setup Analytic Connections within QlikView [here](https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Analytic_connections.htm)*
 - Python 3.5.3 64 bit *(3.4+ but tested on 3.5.3)*
 - Python Libraries: grpcio, googlemaps, polyline
+- Qlik GeoAnalytics to visualize routes and geocoding in demo apps
 
 ## LAYOUT
 
@@ -87,7 +89,7 @@ $ pip install polyline
 
 1. Now we want to setup our directions service and app. Let’s start by copying over the contents of the example
     from this package to the ‘..\QlikSenseAAI\Directions\’ location. Alternatively you can simply clone the repository.
-2. After copying over the contents, go ahead and import the example qvfs found [here](https://www.dropbox.com/s/mkq4fn79onhv35o/DPI%20-%20Google%20Directions.qvf?dl=0) and [here](https://www.dropbox.com/s/6wa0dg541bo5s0v/DPI%20-%20Python%20Google%20Waypoint%20Optimization.qvf?dl=0).
+2. After copying over the contents, go ahead and import the example qvfs found [here](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/DPI+-+Google+Directions.qvf) and [here](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/DPI+-+Python+Google+Waypoint+Optimization.qvf).
 3. Lastly, import the *qsvariable* extension found [here](https://github.com/erikwett/qsVariable) and the *Simple Table with Image & Link Detectio*n found [here](https://github.com/danielpilla/sense-images-links-extension).
 
 
