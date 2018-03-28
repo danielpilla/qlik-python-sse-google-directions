@@ -5,7 +5,7 @@
 ## REQUIREMENTS
 
 - **Assuming prerequisite: [Python with Qlik Sense AAI – Environment Setup](https://s3.amazonaws.com/dpi-sse/DPI+-+Qlik+Sense+AAI+and+Python+Environment+Setup.pdf)**
-	- This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
+    - This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
 - **Waypoint Optimization example demo app also leverages the [Geocoding SSE](https://github.com/danielpilla/qlik-python-sse-geocoding) to first place a pin on a map as the starting point. To have app work properly, this SSE needs to be configured as well.**
 - Qlik Sense June 2017+
 - QlikView November 2017+
@@ -22,6 +22,7 @@
 - [Copy the Package Contents and Import Examples](#copy-the-package-contents-and-import-examples)
 - [Prepare And Start Services](#prepare-and-start-services)
 - [Leverage the Google Directions API from within Qlik Sense](#leverage-the-google-directions-api-from-within-qlik-sense)
+- [Configure your SSE as a Windows Service](#configure-your-sse-as-a-windows-service)
 
  
 ## PREPARE YOUR PROJECT DIRECTORY
@@ -120,15 +121,15 @@ First and foremost, you will need to link a Google account to receive a [Google 
     - *End Location (string)*: can be an address, city, state, named location, etc
     - *Mode (string)*: see [Google Travel Modes](https://developers.google.com/maps/documentation/directions/intro#TravelModes)
     - *The data to be returned (string)*: this can be one of 5 different options
-    	- *all* -  this will return every result in a single list so that you can parse within Qlik to save calls
-    	- *coordinates* - this returns the list of all coordinates, and works as a line object dimension with GeoAnalytics. This is the coordinate route. 
-    	- *instructions* - this returns the list of step by step driving instructions
-    	- *duration* - this returns the total duration in minutes 
-    	- *distance* - this returns the total distance in miles
+        - *all* -  this will return every result in a single list so that you can parse within Qlik to save calls
+        - *coordinates* - this returns the list of all coordinates, and works as a line object dimension with GeoAnalytics. This is the coordinate route. 
+        - *instructions* - this returns the list of step by step driving instructions
+        - *duration* - this returns the total duration in minutes 
+        - *distance* - this returns the total distance in miles
     - *Alternative (string)* - this is a string Boolean represented as 'true' or 'false' to return the first alternate route
-    	
+        
 2. Example function calls:
-	
+    
     *Returns the total duration of the trip*:
     ``` PythonDirections.GoogleDirections('$(vStart)','$(vEnd)','driving','duration','false') ``` 
     
@@ -151,17 +152,17 @@ I have created an application that demonstrates three different methods of imple
 ### Waypoint Optimization (Traveling Salesman)
 
 1. The WaypointOptimization() leverages the [googlemaps Python package](https://github.com/googlemaps/google-maps-services-python) as well as the [polyline package](https://github.com/hicsail/polyline), and the function I’ve written accepts five mandatory arguments: 
-	- *Start Location (string)*: can be an address, city, state, named location, etc
-	- *End Location (string)*: can be an address, city, state, named location, etc
-	- *Mode (string)*: see [Google Travel Modes](https://developers.google.com/maps/documentation/directions/intro#TravelModes)
-	- *The data to be returned (string)*: this can be 3 different options:
-		- *all* - returns routes, ordered points, and ordered location names so it can be parsed on the front-end. The above returns are sent in a single triple pipe delimited (|||) string for parsing.
-		- *route* - can be used for a GeoAnalytics Line Map dimension
-		- *points* - returns a string of ordered points
-	- *Waypoints (string)*: a list of up to 10 waypoints (the API goes up to 23 but my example app allows for 10), each delimited with a pipe (|).
+    - *Start Location (string)*: can be an address, city, state, named location, etc
+    - *End Location (string)*: can be an address, city, state, named location, etc
+    - *Mode (string)*: see [Google Travel Modes](https://developers.google.com/maps/documentation/directions/intro#TravelModes)
+    - *The data to be returned (string)*: this can be 3 different options:
+        - *all* - returns routes, ordered points, and ordered location names so it can be parsed on the front-end. The above returns are sent in a single triple pipe delimited (|||) string for parsing.
+        - *route* - can be used for a GeoAnalytics Line Map dimension
+        - *points* - returns a string of ordered points
+    - *Waypoints (string)*: a list of up to 10 waypoints (the API goes up to 23 but my example app allows for 10), each delimited with a pipe (|).
 
 2. Example function calls:
-	
+    
     *Returns all data from the optimized route including two waypoints of Albany and Austin*:
     ``` PythonDirections.WaypointOptimization(‘$(vStart)’,’$(vEnd)’,’driving’,’all’,’Albany, NY|Austin, TX|’)  ``` 
     
@@ -169,6 +170,18 @@ I have created an application that demonstrates three different methods of imple
     ``` PythonDirections.WaypointOptimization(‘$(vStart)’,’$(vEnd)’,’bicycling’,’route’,’Denver, CO|Newport, RI|’)   ```
     
 3. Example application:
-	- The example I’ve provided allows up to 10 waypoints (Google supports up to 23, you could easily adjust the app to allow more). You enter a location into the input box on the top left, and that location is used as your start and end. You then select a transportation mode (driving is the default) followed by up to 10 waypoints. If you have a location entered and waypoints>=2 and waypoints<=10, the map will render the route as well as the ordered points in the order in which to most optimally traverse. 
+    - The example I’ve provided allows up to 10 waypoints (Google supports up to 23, you could easily adjust the app to allow more). You enter a location into the input box on the top left, and that location is used as your start and end. You then select a transportation mode (driving is the default) followed by up to 10 waypoints. If you have a location entered and waypoints>=2 and waypoints<=10, the map will render the route as well as the ordered points in the order in which to most optimally traverse. 
 
 ![Waypoint Optimization](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/wayptoint-optimization-sheet-1.png)
+
+## CONFIGURE YOUR SSE AS A WINDOWS SERVICE
+
+Using NSSM is my personal favorite way to turn a Python SSE into a Windows Service. You will want to run your SSEs as services so that they startup automatically and run in the background.
+1. The **Path** needs to be the location of your desired Python executable. If you've followed my guide and are using a virtual environment, you can find that under 'C:\Users\\{USERNAME}\Envs\QlikSenseAAI\Scripts\python.exe'.
+2. the **Startup directory** needs to be the parent folder of the extension service. Depending on what guide you are following, the folder needs to contain the '_\_main\_\_.py' file or the 
+'ExtensionService_{yourservicename).py' file.
+3. The **Arguments** parameter is then just the name of the file that you want Python to run. Again, depending on the guide, that will either be the '\_\_main\_\_.py' file or the 'ExtensionService_{yourservicename).py' file.
+
+**Example:**
+
+![ServiceExample](https://s3.amazonaws.com/dpi-sse/PythonAsAService.png)
