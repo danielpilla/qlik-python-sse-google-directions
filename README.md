@@ -8,7 +8,7 @@
 	- This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
 - Qlik Sense June 2017+
 - QlikView November 2017+
-    - *This guide is designed for Qlik Sense but may be used with QlikView. See how to setup Analytic Connections within QlikView [here](https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Analytic_connections.htm)*
+    - *This guide is designed for Qlik Sense but may be used with QlikView. Table loads (script tensor) are currently not supported in QlikView, but scalar functions may be used in both the script and front-end. Be aware of the performance implications here as scalar funtions are called record-by-record. See how to setup Analytic Connections within QlikView [here](https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Analytic_connections.htm)*
 - Python 3.5.3 64 bit *(3.4+ but tested on 3.5.3)*
 - Python Libraries: grpcio, googlemaps, polyline
 
