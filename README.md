@@ -1,6 +1,6 @@
 # Python Google Directions & Waypoint Optimization SSE for Qlik
 
-![Waypoint Optimization](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/wayptoint-optimization-sheet-1.png)
+![Waypoint Optimization](../assets/wayptoint-optimization-sheet-1.png)
 
 ## REQUIREMENTS
 
