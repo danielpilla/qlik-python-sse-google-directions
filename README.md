@@ -4,9 +4,8 @@
 
 ## REQUIREMENTS
 
-- **Assuming prerequisite: [Python with Qlik Sense AAI – Environment Setup](https://s3.amazonaws.com/dpi-sse/DPI+-+Qlik+Sense+AAI+and+Python+Environment+Setup.pdf)**
+- **Assuming prerequisite: [Python with Qlik Sense AAI – Environment Setup](https://docs.google.com/viewer?url=https://github.com/danielpilla/qlik-python-sse-google-directions/blob/assets/DPI%20-%20Qlik%20Sense%20AAI%20and%20Python%20Environment%20Setup.pdf?raw=true)**
     - This is not mandatory and is intended for those who are not as familiar with Python to setup a virtual environment. Feel free to follow the below instructions flexibly if you have experience.
-- **Waypoint Optimization example demo app also leverages the [Geocoding SSE](https://github.com/danielpilla/qlik-python-sse-geocoding) to first place a pin on a map as the starting point. To have app work properly, this SSE needs to be configured as well.**
 - Qlik Sense June 2017+
 - QlikView November 2017+
     - *This guide is designed for Qlik Sense but may be used with QlikView. See how to setup Analytic Connections within QlikView [here](https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Analytic_connections.htm)*
@@ -91,7 +90,7 @@ $ pip install polyline
 
 1. Now we want to setup our directions service and app. Let’s start by copying over the contents of the example
     from this package to the ‘..\QlikSenseAAI\Directions\’ location. Alternatively you can simply clone the repository.
-2. After copying over the contents, go ahead and import the example qvfs found [here](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/DPI+-+Google+Directions.qvf) and [here](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/DPI+-+Python+Google+Waypoint+Optimization.qvf).
+2. After copying over the contents, go ahead and import the example qvfs found [here](../assets/DPI%20-%20Google%20Directions.qvf?raw=true) and [here](../assets/DPI%20-%20Python%20Google%20Waypoint%20Optimization.qvf?raw=true).
 3. Lastly, import the *qsvariable* extension found [here](https://github.com/erikwett/qsVariable) and the *Simple Table with Image & Link Detectio*n found [here](https://github.com/danielpilla/sense-images-links-extension).
 
 
@@ -140,15 +139,15 @@ First and foremost, you will need to link a Google account to receive a [Google 
 I have created an application that demonstrates three different methods of implementation, but there are certainly many other scenarios and use cases.
 - Sheet 1: Routing from input box to input box locations
 
-![Sheet 1](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/directions-sheet-1.png)
+![Sheet 1](../assets/directions-sheet-1.png)
 
 - Sheet 2: Routing from selecting two address values within a filter pane or on the map
 
-![Sheet 2](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/directions-sheet-2.png)
+![Sheet 2](../assets/directions-sheet-2.png)
 
 - Sheet 3: Routing from an input box location to a selection in a field or on the map
 
-![Sheet 3](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/directions-sheet-3.png)
+![Sheet 3](../assets/directions-sheet-3.png)
        
 ### Waypoint Optimization (Traveling Salesman)
 
@@ -173,7 +172,7 @@ I have created an application that demonstrates three different methods of imple
 3. Example application:
     - The example I’ve provided allows up to 10 waypoints (Google supports up to 23, you could easily adjust the app to allow more). You enter a location into the input box on the top left, and that location is used as your start and end. You then select a transportation mode (driving is the default) followed by up to 10 waypoints. If you have a location entered and waypoints>=2 and waypoints<=10, the map will render the route as well as the ordered points in the order in which to most optimally traverse. 
 
-![Waypoint Optimization](https://s3.amazonaws.com/dpi-sse/qlik-python-sse-google-directions/wayptoint-optimization-sheet-1.png)
+![Waypoint Optimization](../assets/wayptoint-optimization-sheet-1.png)
 
 ## CONFIGURE YOUR SSE AS A WINDOWS SERVICE
 
@@ -185,4 +184,4 @@ Using NSSM is my personal favorite way to turn a Python SSE into a Windows Servi
 
 **Example:**
 
-![ServiceExample](https://s3.amazonaws.com/dpi-sse/PythonAsAService.png)
+![ServiceExample](../assets/PythonAsAService.png)
